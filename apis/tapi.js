@@ -5,8 +5,6 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override')
 var request = require('request');
  var twitter = require('twitter')
- var axios = require('axios');
-
 
 router.post('/api', function(req, res){
   var text = req.body.text
@@ -43,18 +41,8 @@ router.post('/api', function(req, res){
 
             })
             console.log(this.tw[0], "lol")
-
-			axios({
-			  method: 'post',
-			  url: '/user/12345',
-			  data: {
-			    firstName: 'Fred',
-			    lastName: 'Flintstone'
-			  	}
-			});
-
-
-
+            var p = []
+            res.json(this.tw)
 
             this.tw = []
             console.log(this.tw[0], "ddd")
@@ -77,11 +65,11 @@ router.post('/api', function(req, res){
 
         // }
         // res.send(tw)
-     res.end()
+
     });
 
     } //end twitter
-    res.end()
+
   });
 });
 

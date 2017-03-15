@@ -52325,7 +52325,9 @@ var Main = function (_React$Component) {
       search1: [],
       search2: [],
       search3: [],
-      arry: [],
+      watch1: '',
+      watch2: '',
+      watch3: '',
       loggedin: false
     };
     return _this;
@@ -52354,6 +52356,9 @@ var Main = function (_React$Component) {
 
       event.preventDefault();
       var a = this.refs.lol.value.trim();
+      var b = '#' + a;
+      console.log(b);
+
       var text = { 'text': a };
 
       _axios2.default.post('/api', text).then(function (data) {
@@ -52364,14 +52369,20 @@ var Main = function (_React$Component) {
         _axios2.default.get("/tweets").then(function (response) {
           return _this3.setState({ search1: response }, console.log(_this3.state.search1));
         });
+        localStorage.setItem("hash1", b);
+        this.setState({ watch1: b });
       } else if (this.state.search1 !== 0 && this.state.search2 == 0) {
         _axios2.default.get("/tweets").then(function (response) {
           return _this3.setState({ search2: response }, console.log(_this3.state.search2));
         });
+        localStorage.setItem("hash2", b);
+        this.setState({ watch2: b });
       } else if (this.state.search1 !== 0 && this.state.search2 !== 0 && this.state.search3 == 0) {
         _axios2.default.get("/tweets").then(function (response) {
           return _this3.setState({ search3: response }, console.log(_this3.state.search3));
         });
+        localStorage.setItem("hash3", b);
+        this.setState({ watch3: b });
       }
     }
   }, {
@@ -52379,18 +52390,21 @@ var Main = function (_React$Component) {
     value: function delClick1(event) {
       event.preventDefault();
       this.setState({ search1: [] });
+      localStorage.removeItem('hash1');
     }
   }, {
     key: 'delClick2',
     value: function delClick2(event) {
       event.preventDefault();
       this.setState({ search2: [] });
+      localStorage.removeItem('hash2');
     }
   }, {
     key: 'delClick3',
     value: function delClick3(event) {
       event.preventDefault();
       this.setState({ search3: [] });
+      localStorage.removeItem('hash3');
     }
   }, {
     key: 'delClickAll',
@@ -52399,6 +52413,9 @@ var Main = function (_React$Component) {
       this.setState({ search1: [] });
       this.setState({ search2: [] });
       this.setState({ search3: [] });
+      localStorage.removeItem('hash1');
+      localStorage.removeItem('hash2');
+      localStorage.removeItem('hash3');
     }
   }, {
     key: 'render',
@@ -52691,7 +52708,7 @@ var Main = function (_React$Component) {
                     _react2.default.createElement(
                       'a',
                       { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' },
-                      'Settings',
+                      'History',
                       _react2.default.createElement('span', { className: 'caret' })
                     ),
                     _react2.default.createElement(
@@ -52702,8 +52719,8 @@ var Main = function (_React$Component) {
                         null,
                         _react2.default.createElement(
                           'a',
-                          { href: '#' },
-                          'Action'
+                          { href: 'javascript:void(0)' },
+                          localStorage.getItem("hash1")
                         )
                       ),
                       _react2.default.createElement(
@@ -52711,8 +52728,8 @@ var Main = function (_React$Component) {
                         null,
                         _react2.default.createElement(
                           'a',
-                          { href: '#' },
-                          'Another action'
+                          { href: 'javascript:void(0)' },
+                          localStorage.getItem("hash2")
                         )
                       ),
                       _react2.default.createElement(
@@ -52720,8 +52737,8 @@ var Main = function (_React$Component) {
                         null,
                         _react2.default.createElement(
                           'a',
-                          { href: '#' },
-                          'Something else here'
+                          { href: 'javascript:void(0)' },
+                          localStorage.getItem("hash3")
                         )
                       ),
                       _react2.default.createElement('li', { role: 'separator', className: 'divider' }),
@@ -52730,8 +52747,8 @@ var Main = function (_React$Component) {
                         null,
                         _react2.default.createElement(
                           'a',
-                          { href: '#' },
-                          'Separated link'
+                          { href: 'javascript:void(0)' },
+                          'Most Recent Watchlists'
                         )
                       )
                     )
@@ -52787,6 +52804,64 @@ var Main = function (_React$Component) {
                       )
                     )
                   )
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'watchlistcon col-md-12' },
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-4 wc' },
+              _react2.default.createElement(
+                'h6',
+                { className: 'cush6' },
+                'Watchlist One'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                _react2.default.createElement(
+                  'strong',
+                  { className: 'cusst' },
+                  this.state.watch1
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-4 wc m' },
+              _react2.default.createElement(
+                'h6',
+                { className: 'cush6' },
+                'Watchlist Two'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                _react2.default.createElement(
+                  'strong',
+                  { className: 'cusst' },
+                  this.state.watch2
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-4 wc' },
+              _react2.default.createElement(
+                'h6',
+                { className: 'cush6' },
+                'Watchlist Three'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                _react2.default.createElement(
+                  'strong',
+                  { className: 'cusst' },
+                  this.state.watch3
                 )
               )
             )

@@ -12,7 +12,9 @@ class Main extends React.Component {
       search1:[],
       search2:[],
       search3:[],
-      arry:[],
+      watch1:'',
+      watch2:'',
+      watch3:'',
       loggedin: false
     }
   }
@@ -27,22 +29,31 @@ class Main extends React.Component {
   handleClick(event){
     event.preventDefault();
    var a = this.refs.lol.value.trim();
+   var b = '#'+a
+   console.log(b)
+   
    var text = {'text':a}
 
    axios.post('/api', text).then(function (data) {
      console.log('saved successfully');
     });
-   
+
 
   if (this.state.search1 == 0) {
    axios.get("/tweets")
      .then(response => this.setState({search1: response}, console.log(this.state.search1)))
+     localStorage.setItem("hash1", b);
+     this.setState({ watch1: b})
   }else if (this.state.search1 !== 0 && this.state.search2 == 0) {
     axios.get("/tweets")
      .then(response => this.setState({search2: response}, console.log(this.state.search2)))
+     localStorage.setItem("hash2", b);
+     this.setState({ watch2: b})
   }else if (this.state.search1 !== 0 && this.state.search2 !== 0 && this.state.search3 == 0 ) {
     axios.get("/tweets")
      .then(response => this.setState({search3: response}, console.log(this.state.search3)))
+     localStorage.setItem("hash3", b);
+     this.setState({ watch3: b})
   }
 
 }
@@ -50,18 +61,21 @@ class Main extends React.Component {
   delClick1(event){
     event.preventDefault();
     this.setState({search1: []})
+    localStorage.removeItem('hash1');
 
 }
 
   delClick2(event){
     event.preventDefault();
     this.setState({search2: []})
+    localStorage.removeItem('hash2');
 
 }
 
   delClick3(event){
     event.preventDefault();
     this.setState({search3: []})
+    localStorage.removeItem('hash3');
 
 }
   delClickAll(event){
@@ -69,6 +83,9 @@ class Main extends React.Component {
     this.setState({search1: []})
     this.setState({search2: []})
     this.setState({search3: []})
+    localStorage.removeItem('hash1');
+    localStorage.removeItem('hash2');
+    localStorage.removeItem('hash3');
 
 }
 
@@ -181,13 +198,13 @@ class Main extends React.Component {
                       </ul>
                     </li>
                     <li className="dropdown">
-                      <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings<span className="caret"></span></a>
+                      <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">History<span className="caret"></span></a>
                       <ul className="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a href="javascript:void(0)">{localStorage.getItem("hash1")}</a></li>
+                        <li><a href="javascript:void(0)">{localStorage.getItem("hash2")}</a></li>
+                        <li><a href="javascript:void(0)">{localStorage.getItem("hash3")}</a></li>
                         <li role="separator" className="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a href="javascript:void(0)">Most Recent Watchlists</a></li>
                       </ul>
                     </li>
                     <li className="dropdown">
@@ -203,6 +220,21 @@ class Main extends React.Component {
                   </ul>
                 </div>
               </div>
+            </div>
+
+            <div className="watchlistcon col-md-12">
+            <div className="col-md-4 wc">
+              <h6 className="cush6">Watchlist One</h6>
+              <p><strong className="cusst">{this.state.watch1}</strong></p>
+            </div>
+            <div className="col-md-4 wc m">
+                <h6 className="cush6">Watchlist Two</h6>
+              <p><strong className="cusst">{this.state.watch2}</strong></p>
+            </div>
+            <div className="col-md-4 wc">
+              <h6 className="cush6">Watchlist Three</h6>
+              <p><strong className="cusst">{this.state.watch3}</strong></p>
+            </div>
             </div>
 
             <div>
