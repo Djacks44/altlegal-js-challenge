@@ -1,7 +1,7 @@
 {
-  "name": "NYTH",
+  "name": "Alt",
   "version": "1.0.0",
-  "description": "NYT-Helper",
+  "description": "Alt-challange",
   "main": "server.js",
   "dependencies": {
     "axios": "^0.15.3",

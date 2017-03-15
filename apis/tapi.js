@@ -2,9 +2,9 @@ var express = require('express');
 var router  = express.Router();
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var methodOverride = require('method-override')
+var methodOverride = require('method-override');
 var request = require('request');
- var twitter = require('twitter')
+var twitter = require('twitter');
 
 router.post('/api', function(req, res){
   var text = req.body.text
@@ -26,7 +26,7 @@ router.post('/api', function(req, res){
       
       var params = {screen_name: 'DiscoverMf'};
       client.get('search/tweets', {q: this.text , lang: "en"}, function(error, tweets, response){
-      	console.log(this.text,"jdjdjsdsd")
+      	// console.log(this.text,"jdjdjsdsd")
       if (!error) {
       	if(tweets.statuses){
           
@@ -40,31 +40,19 @@ router.post('/api', function(req, res){
               this.tw.push(Info)
 
             })
-            console.log(this.tw[0], "lol")
+            // console.log(this.tw[0], "lol")
             var p = []
             res.json(this.tw)
 
             this.tw = []
-            console.log(this.tw[0], "ddd")
-            
-
-
+            // console.log(this.tw[0], "ddd")
+          
 
 
       }
-      // lists my tweets
-      }
-      // counts out and displays multiple tweets
-        // for(var i = 0; i < data.length; i++) {
-        //   var twitterResults = 
-        //   "@" + data[i].user.screen_name + ": " + 
-        //   data[i].text + "\r\n" + 
-        //   data[i].created_at + "\r\n" + 
-        //   "------- End Tweet -------" + "\r\n";
-        //   tw.push(twitterResults)
 
-        // }
-        // res.send(tw)
+      }
+
 
     });
 

@@ -12,6 +12,7 @@ class Main extends React.Component {
       search1:[],
       search2:[],
       search3:[],
+      n:5,
       watch1:'',
       watch2:'',
       watch3:'',
@@ -23,8 +24,13 @@ class Main extends React.Component {
     axios.get('/users/userlogedin')
          .then(req => this.setState({ loggedin: req.data.logged_in}));
   }
-  logout(){
-    this.setState({ loggedin: false})
+  logout(event){
+
+    axios.get('/sign-out').then(function (data) {
+     console.log('out');
+    });
+
+    // this.setState({ loggedin: false})
   }
   handleClick(event){
     event.preventDefault();
@@ -58,10 +64,36 @@ class Main extends React.Component {
 
 }
 
+  valClick(event){
+    event.preventDefault();
+    var num = parseInt(this.refs.mol.value.trim())
+    
+
+
+    if (num > 25) {
+      num = 25
+      console.log(num)
+      this.setState({ n: num})
+      localStorage.setItem("Num", num);
+    }else if(num == 0){
+      num = 5
+      console.log(num)
+      this.setState({ n: num})
+      localStorage.setItem("Num", num);
+    }else{
+      console.log(num)
+      this.setState({ n: num})
+      localStorage.setItem("Num", num); 
+    }
+
+
+
+}
   delClick1(event){
     event.preventDefault();
     this.setState({search1: []})
     localStorage.removeItem('hash1');
+    this.setState({ watch1: ''})
 
 }
 
@@ -69,6 +101,7 @@ class Main extends React.Component {
     event.preventDefault();
     this.setState({search2: []})
     localStorage.removeItem('hash2');
+    this.setState({ watch2: ''})
 
 }
 
@@ -76,6 +109,7 @@ class Main extends React.Component {
     event.preventDefault();
     this.setState({search3: []})
     localStorage.removeItem('hash3');
+    this.setState({ watch3: ''})
 
 }
   delClickAll(event){
@@ -86,88 +120,42 @@ class Main extends React.Component {
     localStorage.removeItem('hash1');
     localStorage.removeItem('hash2');
     localStorage.removeItem('hash3');
+    this.setState({ watch1: ''})
+    this.setState({ watch2: ''})
+    this.setState({ watch3: ''})
 
 }
 
   render(){
 
     if (this.state.loggedin) {
-      return(
-        <div>
-           <header id="header">
-            <nav className="wow fadeInDown">
-             <div className="row">
-               <div className="large-3 medium-12 small-12 columns">
-                 <img src='assets/img/dailygrub.png' className="img-responsive logo"/>
-               </div>
-               <div className="large-9 medium-12 small-12 columns">
-                 <span id="showmobilemenu" className="hide-for-large-up">Menu</span>
-                 <ul id="mainnav">
-                   <li><a href="/" className="active">Home</a></li>
-                   <li><a href="/#/Profile">Profile</a></li>
-                   <li><a href="views/blog.html" >About Us</a></li>
-                   <li role="presentation"><a href="#" className="whtText" onClick={this.logout.bind(this)} >Log out</a></li>
-                 </ul>
-               </div>
-             </div>
-            </nav>
-          <section id="header-content">
-            <img src='assets/img/dailygrub.png'  className="wow fadeInDown img-responsive logo"/>
-             <div>
-               <form onSubmit={this.handleClick.bind(this)}>
-                 <input id="bti" type="text" ref="lol" placeholder="What do you want to Eat?" />
-                 <button id="bt" onClick={this.handleClick.bind(this)}>Submit</button>
-               </form>
-              </div>
-         <br />
-         <h6 className="big fontsans">The best recipes for tasty dishes</h6>
-
-
-       </section>
-     </header>
-
-
-
-            <div>
-             <Container1 recipe={this.state.search1} />
-            </div>
-            <div>
-             <Container2 recipe={this.state.search2} />
-            </div>
-            <div>
-             <Container3 recipe={this.state.search3} />
-            </div>
-
- </div>
-      )}else{
-        return(
+         return(
           <div>
              <header id="header">
               <nav className="wow fadeInDown">
                <div className="row">
                  <div className="large-3 medium-12 small-12 columns">
-                   <img src='assets/img/dailygrub.png' className="img-responsive logo"/>
+                   <img src='assets/img/Logo_36px.png' className="ddd"/>
                  </div>
                  <div className="large-9 medium-12 small-12 columns">
                    <span id="showmobilemenu" className="hide-for-large-up">Menu</span>
                    <ul id="mainnav">
-                     <li><a href="/" className="active">Home</a></li>
-                     <li><a href="/about">About Us</a></li>
-                     <li role="presentation"><a href="#" data-toggle="modal" data-target="#sign-in" className="whtText">Login</a></li>
+                    <li><a href="/" className="active">Home</a></li>
+                    <li role="presentation"><a href="/" className="whtText" onClick={this.logout.bind(this)} >Log out</a></li>
                    </ul>
                  </div>
                </div>
               </nav>
               <section id="header-content">
-                <img src='assets/img/dailygrub.png'  className="wow fadeInDown img-responsive logo"/>
+                <h1 id="big" className="wow fadeInDown img-responsive logo">Twitter Watchlist</h1>
                  <div>
                    <form onSubmit={this.handleClick.bind(this)}>
-                     <input id="bti" type="text" ref="lol" placeholder="What do you want to Eat?" />
+                     <input id="bti" type="text" ref="lol" placeholder="Enter a Hashtag" />
                      <button id="bt" onClick={this.handleClick.bind(this)}>Submit</button>
                    </form>
                   </div>
              <br />
-             <h6 className="big fontsans">The best recipes for tasty dishes</h6>
+             <h6 className="big fontsans">Helping You Watch for Twitter Hashtags</h6>
 
              </section>
             </header>
@@ -205,16 +193,24 @@ class Main extends React.Component {
                         <li><a href="javascript:void(0)">{localStorage.getItem("hash3")}</a></li>
                         <li role="separator" className="divider"></li>
                         <li><a href="javascript:void(0)">Most Recent Watchlists</a></li>
+                        <li role="separator" className="divider"></li>
+                        <li><a href="javascript:void(0)">Last Custom # of Results Displayed {localStorage.getItem("Num")}</a></li>
                       </ul>
                     </li>
                     <li className="dropdown">
                       <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tools<span className="caret"></span></a>
                       <ul className="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" className="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a href="javascript:void(0)">Number of results</a></li>
+                      <li role="separator" className="divider"></li>
+                      <li><a href="javascript:void(0)">Enter a value between 1 - 25</a></li>
+                        <div className="radios">
+                        <div>
+                         <form onSubmit={this.valClick.bind(this)}>
+                           <input id="bto" ref="mol" type="number" name="quantity" min="1" max="25"/>
+                           <button id="bt" onClick={this.valClick.bind(this)}>Submit</button>
+                         </form>
+                        </div>
+                        </div>
                       </ul>
                     </li>
                   </ul>
@@ -238,17 +234,63 @@ class Main extends React.Component {
             </div>
 
             <div>
-             <Container1 recipe={this.state.search1} />
+             <Container1 recipe={this.state.search1} cas={this.state.n} />
             </div>
             <div>
-             <Container2 recipe={this.state.search2} />
+             <Container2 recipe={this.state.search2} cas={this.state.n} />
             </div>
             <div>
-             <Container3 recipe={this.state.search3} />
+             <Container3 recipe={this.state.search3} cas={this.state.n} />
             </div>
           </div>
-        );
-      }
+        )}else{
+      return(
+        <div>
+             <header id="header">
+              <nav className="wow fadeInDown">
+               <div className="row">
+                 <div className="large-3 medium-12 small-12 columns">
+                   <img src='assets/img/Logo_36px.png' className="ddd"/>
+                 </div>
+                 <div className="large-9 medium-12 small-12 columns">
+                   <span id="showmobilemenu" className="hide-for-large-up">Menu</span>
+                   <ul id="mainnav">
+                    <li><a href="/" className="active">Home</a></li>
+                    <li role="presentation"><a href="#" data-toggle="modal" data-target="#sign-in" className="whtText">Login</a></li>
+                   </ul>
+                 </div>
+               </div>
+              </nav>
+              <section id="header-content">
+                <h1 id="big" className="wow fadeInDown img-responsive logo">Twitter Watchlist</h1>
+                 <div>
+                   <form onSubmit={this.handleClick.bind(this)}>
+                     <input id="bti" type="text" ref="lol" placeholder="Enter a Hashtag" />
+                     <button id="bt" onClick={this.handleClick.bind(this)}>Submit</button>
+                   </form>
+                  </div>
+             <br />
+             <h6 className="big fontsans">Helping You Watch for Twitter Hashtags</h6>
+
+             </section>
+            </header>
+
+
+
+            <div>
+             <Container1 recipe={this.state.search1} cas={this.state.n} />
+            </div>
+            <div>
+             <Container2 recipe={this.state.search2} cas={this.state.n} />
+            </div>
+            <div>
+             <Container3 recipe={this.state.search3} cas={this.state.n} />
+            </div>
+
+ </div>
+
+      );
+    }
     }
   }
 

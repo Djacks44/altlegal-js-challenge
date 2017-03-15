@@ -12,22 +12,15 @@ class Container1 extends React.Component {
     this.state = {
 
     };
-    console.log(this.props, 'lol')
+    // console.log(this.props, 'lol')
 
 
   }
 
 
-  // handleClick2(obj, event){
-  //   event.preventDefault();
-  //   // save here
-  //   console.log(obj)
-  // }
-
-
 
   render(){
-    console.log(this.props,'dklmxdslmkxdsmx')
+    // console.log(this.props,'dklmxdslmkxdsmx')
 
     if (this.props.recipe == '') {
          return(
@@ -50,10 +43,23 @@ class Container1 extends React.Component {
   );
 
     }else{
-      console.log(this.props.recipe == '')
-      console.log(this.props.recipe)
+      // console.log(this.props.recipe == '')
+      // console.log(this.props.recipe)
       var recipe = this.props.recipe
-      let n = 5
+      console.log(this.props.cas)
+
+      let n = 2
+      
+      if (this.props.cas == undefined) {
+         n = 5
+      }else{
+         n = this.props.cas
+      }
+
+
+
+
+
       var limitnum = this.props.recipe.data.slice(0, n);
 
       var recipes = limitnum.map(function(recipe, index){
@@ -130,7 +136,7 @@ if(this.state.reciped == undefined){
         <div className="wow bounceInUp" data-wow-offset="250">
           <div className="row" data-equalizer>
             {recipes}
-             <Example recipe={this.state.reciped} roy={this.state.roy}/>
+             <Example recipe={this.state.reciped} />
           </div>
         </div>
       </section>

@@ -51,6 +51,7 @@ router.post('/login', function(req, res) {
 	});
 });
 
+
 router.post('/register', function(req,res) {
 	var queryString = "select * from users where email = '" + req.body.email + "'";
 
