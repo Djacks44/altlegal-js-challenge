@@ -69,23 +69,16 @@ class Container1 extends React.Component {
     <div key={index}>
     <div className="row">
         
-            <div className="card">
-                <div className="card-image">
+            <div className="card col-md-12">
+                <div className="col-md-12">
                     <img className="img1" src={recipe.img} alt="" />
-                    <span className="card-title">Material Cards</span>
+                    <p className="yo">{recipe.username}</p>
+                    <p className="yo">{recipe.screen_name}</p>
+                </div>
+                <div className="col-md-12">
+                    <p className="text">{recipe.text}</p>
                 </div>
                 
-                <div className="card-content">
-                    <p>Cards for display in portfolio style material design by Google.</p>
-                </div>
-                
-                <div className="card-action">
-                    <a href="#" target="new_blank">Link</a>
-                    <a href="#" target="new_blank">Link</a>
-                    <a href="#" target="new_blank">Link</a>
-                    <a href="#" target="new_blank">Link</a>
-                    <a href="#" target="new_blank">Link</a>
-                </div>
             </div>
        
     </div>

@@ -51936,53 +51936,29 @@ var Container1 = function (_React$Component) {
                 { className: 'row' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'card' },
+                  { className: 'card col-md-12' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'card-image' },
+                    { className: 'col-md-12' },
                     _react2.default.createElement('img', { className: 'img1', src: recipe.img, alt: '' }),
                     _react2.default.createElement(
-                      'span',
-                      { className: 'card-title' },
-                      'Material Cards'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'card-content' },
+                      'p',
+                      { className: 'yo' },
+                      recipe.username
+                    ),
                     _react2.default.createElement(
                       'p',
-                      null,
-                      'Cards for display in portfolio style material design by Google.'
+                      { className: 'yo' },
+                      recipe.screen_name
                     )
                   ),
                   _react2.default.createElement(
                     'div',
-                    { className: 'card-action' },
+                    { className: 'col-md-12' },
                     _react2.default.createElement(
-                      'a',
-                      { href: '#', target: 'new_blank' },
-                      'Link'
-                    ),
-                    _react2.default.createElement(
-                      'a',
-                      { href: '#', target: 'new_blank' },
-                      'Link'
-                    ),
-                    _react2.default.createElement(
-                      'a',
-                      { href: '#', target: 'new_blank' },
-                      'Link'
-                    ),
-                    _react2.default.createElement(
-                      'a',
-                      { href: '#', target: 'new_blank' },
-                      'Link'
-                    ),
-                    _react2.default.createElement(
-                      'a',
-                      { href: '#', target: 'new_blank' },
-                      'Link'
+                      'p',
+                      { className: 'text' },
+                      recipe.text
                     )
                   )
                 )
@@ -52167,53 +52143,29 @@ var Container2 = function (_React$Component) {
                 { className: 'row' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'card' },
+                  { className: 'card col-md-12' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'card-image' },
+                    { className: 'col-md-12' },
                     _react2.default.createElement('img', { className: 'img1', src: recipe.img, alt: '' }),
                     _react2.default.createElement(
-                      'span',
-                      { className: 'card-title' },
-                      'Material Cards'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'card-content' },
+                      'p',
+                      { className: 'yo' },
+                      recipe.username
+                    ),
                     _react2.default.createElement(
                       'p',
-                      null,
-                      'Cards for display in portfolio style material design by Google.'
+                      { className: 'yo' },
+                      recipe.screen_name
                     )
                   ),
                   _react2.default.createElement(
                     'div',
-                    { className: 'card-action' },
+                    { className: 'col-md-12' },
                     _react2.default.createElement(
-                      'a',
-                      { href: '#', target: 'new_blank' },
-                      'Link'
-                    ),
-                    _react2.default.createElement(
-                      'a',
-                      { href: '#', target: 'new_blank' },
-                      'Link'
-                    ),
-                    _react2.default.createElement(
-                      'a',
-                      { href: '#', target: 'new_blank' },
-                      'Link'
-                    ),
-                    _react2.default.createElement(
-                      'a',
-                      { href: '#', target: 'new_blank' },
-                      'Link'
-                    ),
-                    _react2.default.createElement(
-                      'a',
-                      { href: '#', target: 'new_blank' },
-                      'Link'
+                      'p',
+                      { className: 'text' },
+                      recipe.text
                     )
                   )
                 )
@@ -52398,53 +52350,29 @@ var Container3 = function (_React$Component) {
                 { className: 'row' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'card' },
+                  { className: 'card col-md-12' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'card-image' },
+                    { className: 'col-md-12' },
                     _react2.default.createElement('img', { className: 'img1', src: recipe.img, alt: '' }),
                     _react2.default.createElement(
-                      'span',
-                      { className: 'card-title' },
-                      'Material Cards'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'card-content' },
+                      'p',
+                      { className: 'yo' },
+                      recipe.username
+                    ),
                     _react2.default.createElement(
                       'p',
-                      null,
-                      'Cards for display in portfolio style material design by Google.'
+                      { className: 'yo' },
+                      recipe.screen_name
                     )
                   ),
                   _react2.default.createElement(
                     'div',
-                    { className: 'card-action' },
+                    { className: 'col-md-12' },
                     _react2.default.createElement(
-                      'a',
-                      { href: '#', target: 'new_blank' },
-                      'Link'
-                    ),
-                    _react2.default.createElement(
-                      'a',
-                      { href: '#', target: 'new_blank' },
-                      'Link'
-                    ),
-                    _react2.default.createElement(
-                      'a',
-                      { href: '#', target: 'new_blank' },
-                      'Link'
-                    ),
-                    _react2.default.createElement(
-                      'a',
-                      { href: '#', target: 'new_blank' },
-                      'Link'
-                    ),
-                    _react2.default.createElement(
-                      'a',
-                      { href: '#', target: 'new_blank' },
-                      'Link'
+                      'p',
+                      { className: 'text' },
+                      recipe.text
                     )
                   )
                 )
@@ -53154,6 +53082,152 @@ var Main = function (_React$Component) {
                 'h6',
                 { className: 'big fontsans' },
                 'Helping You Watch for Twitter Hashtags'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'option-bar' },
+            _react2.default.createElement(
+              'div',
+              { className: 'container-fluid' },
+              _react2.default.createElement(
+                'div',
+                { className: 'navbar-header' },
+                _react2.default.createElement(
+                  'button',
+                  { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
+                  _react2.default.createElement(
+                    'span',
+                    { className: 'sr-only' },
+                    'Toggle navigation'
+                  ),
+                  _react2.default.createElement('span', { className: 'icon-bar' }),
+                  _react2.default.createElement('span', { className: 'icon-bar' }),
+                  _react2.default.createElement('span', { className: 'icon-bar' })
+                ),
+                _react2.default.createElement(
+                  'a',
+                  { className: 'navbar-brand' },
+                  'Options'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
+                _react2.default.createElement(
+                  'ul',
+                  { className: 'nav navbar-nav navbar-right' },
+                  _react2.default.createElement(
+                    'li',
+                    { className: 'dropdown' },
+                    _react2.default.createElement(
+                      'a',
+                      { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' },
+                      'Delete',
+                      _react2.default.createElement('span', { className: 'caret' })
+                    ),
+                    _react2.default.createElement(
+                      'ul',
+                      { className: 'dropdown-menu' },
+                      _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                          'a',
+                          { onClick: this.delClick1.bind(this) },
+                          'Delete Watchlist 1'
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                          'a',
+                          { onClick: this.delClick2.bind(this) },
+                          'Delete Watchlist 2'
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                          'a',
+                          { onClick: this.delClick3.bind(this) },
+                          'Delete Watchlist 3'
+                        )
+                      ),
+                      _react2.default.createElement('li', { role: 'separator', className: 'divider' }),
+                      _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                          'a',
+                          { onClick: this.delClickAll.bind(this) },
+                          'Delete All Watchlists'
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'watchlistcon col-md-12' },
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-4 wc' },
+              _react2.default.createElement(
+                'h6',
+                { className: 'cush6' },
+                'Watchlist One'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                _react2.default.createElement(
+                  'strong',
+                  { className: 'cusst' },
+                  this.state.watch1
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-4 wc m' },
+              _react2.default.createElement(
+                'h6',
+                { className: 'cush6' },
+                'Watchlist Two'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                _react2.default.createElement(
+                  'strong',
+                  { className: 'cusst' },
+                  this.state.watch2
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-4 wc' },
+              _react2.default.createElement(
+                'h6',
+                { className: 'cush6' },
+                'Watchlist Three'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                _react2.default.createElement(
+                  'strong',
+                  { className: 'cusst' },
+                  this.state.watch3
+                )
               )
             )
           ),

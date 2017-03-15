@@ -32,10 +32,10 @@ router.post('/api', function(req, res){
           
             tweets.statuses.forEach((tweet) => {
               let Info = {
-                screen_name: '@' + tweet.user.screen_name,
-                username: tweet.user.name,
-                text: tweet.text,
                 img: tweet.user.profile_image_url,
+                username: tweet.user.name,
+                screen_name: '@' + tweet.user.screen_name,
+                text: tweet.text,
               }
               this.tw.push(Info)
 

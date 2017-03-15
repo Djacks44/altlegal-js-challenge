@@ -275,6 +275,49 @@ class Main extends React.Component {
              </section>
             </header>
 
+            <div className="option-bar">
+              <div className="container-fluid">
+                <div className="navbar-header">
+                  <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span className="sr-only">Toggle navigation</span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                  </button>
+                  <a className="navbar-brand">Options</a>
+                </div>
+                <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                  <ul className="nav navbar-nav navbar-right">
+                    <li className="dropdown">
+                      <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Delete<span className="caret"></span></a>
+                      <ul className="dropdown-menu">
+                        <li><a onClick={this.delClick1.bind(this)}>Delete Watchlist 1</a></li>
+                        <li><a onClick={this.delClick2.bind(this)}>Delete Watchlist 2</a></li>
+                        <li><a onClick={this.delClick3.bind(this)}>Delete Watchlist 3</a></li>
+                        <li role="separator" className="divider"></li>
+                        <li><a onClick={this.delClickAll.bind(this)}>Delete All Watchlists</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="watchlistcon col-md-12">
+            <div className="col-md-4 wc">
+              <h6 className="cush6">Watchlist One</h6>
+              <p><strong className="cusst">{this.state.watch1}</strong></p>
+            </div>
+            <div className="col-md-4 wc m">
+                <h6 className="cush6">Watchlist Two</h6>
+              <p><strong className="cusst">{this.state.watch2}</strong></p>
+            </div>
+            <div className="col-md-4 wc">
+              <h6 className="cush6">Watchlist Three</h6>
+              <p><strong className="cusst">{this.state.watch3}</strong></p>
+            </div>
+            </div>
 
 
             <div>
