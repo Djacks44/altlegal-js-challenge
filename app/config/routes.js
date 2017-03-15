@@ -5,14 +5,14 @@ var Route = Router.Route;
 
 var IndexRoute  = Router.IndexRoute;
 
-import SearchRecipe from '../components/new.jsx'
+import Main from '../components/main.jsx'
 import Plans from '../components/plans.jsx'
 
 module.exports = (
 
   <div>
 
-  <Route path='/' component={SearchRecipe}/>
+  <Route path='/' component={Main}/>
 
    <Route path='Profile' component={Plans} />
    

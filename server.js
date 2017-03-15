@@ -16,6 +16,7 @@ var collections = ["users"];
 
 
 
+
 var db = mongojs(databaseUrl, collections);
 db.on('error', function(err) {
   console.log('Database Error:', err);
@@ -43,57 +44,22 @@ app.use(cookieParser());
 app.use(methodOverride('_method'))
 
 
-var logic = require('./server/logic/logic')
 var users_controller = require('./controller/users_controller');
-app.use('/search',logic);
+
 app.use('/users', users_controller);
 
 app.get('/', function(req, res){
 	res.sendFile('./public/index.html');
 });
-app.get('/tweets', function(req, res){
 
-	let tw = [];
-	twitterCall()
-  function twitterCall() {
-      var client = new twitter({
-    consumer_key: 'bdrrfOqTLd4PpuSZwLSbKYieA',
-    consumer_secret: 'I7903VtIQ6jA3zrvICJjoNZN7yKson2Yhia1O291SYv3G6knIG',
-    access_token_key: '715890770386022400-Fzh6qciYUUMEDpclI3wxxWePZtk2KZS',
-    access_token_secret: '1jEZ307eBlG3XZjKFh5B04ryOjCyOKVcoYKe9ZMWOU5KS', 
-    });
-    var params = {screen_name: 'DiscoverMf'};
-    client.get('search/tweets', {q: 'logan', lang: "en"}, function(error, tweets, response){
-    if (!error) {
-    	if(tweets.statuses){
-          tweets.statuses.forEach((tweet) => {
-            let Info = {
-              screen_name: '@' + tweet.user.screen_name,
-              username: tweet.user.name,
-              text: tweet.text,
-              img: tweet.user.profile_image_url,
-            }
-            tw.push(Info)
-          })
-          res.send(tw)
-    }
-    // lists my tweets
-    }
-    // counts out and displays multiple tweets
-      // for(var i = 0; i < data.length; i++) {
-      //   var twitterResults = 
-      //   "@" + data[i].user.screen_name + ": " + 
-      //   data[i].text + "\r\n" + 
-      //   data[i].created_at + "\r\n" + 
-      //   "------- End Tweet -------" + "\r\n";
-      //   tw.push(twitterResults)
 
-      // }
-      // res.send(tw)
-  });
 
-  } //end twitter
-});
+var tapi = require('./apis/tapi.js');
+
+
+app.use('/', tapi);
+
+
 
 app.listen(PORT, function() {
 	console.log("App listening on PORT: " + PORT);

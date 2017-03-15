@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Router from 'react-router'
-import Showfood from './showfood.jsx'
+// import Showfood from './showfood.jsx'
 
 
 class Plans extends React.Component {

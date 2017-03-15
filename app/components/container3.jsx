@@ -3,10 +3,10 @@ import axios from 'axios'
 import Router from 'react-router'
 import Button from 'react-bootstrap/lib/Button';
 import Modal from 'react-bootstrap/lib/Modal';
-import Example from './RecipeinformationModal.jsx'
 
 
-class ShowRecipe extends React.Component {
+
+class Container3 extends React.Component {
     constructor(props) {
     super(props);
     this.state = {
@@ -17,19 +17,19 @@ class ShowRecipe extends React.Component {
 
   }
 
-   handleClick(obj, event){
-    console.log(obj)
-    alert('yo')
-    axios.get("https://crossorigin.me/http://food2fork.com/api/get?key=2fc55b81d38f69fa79fa74a05a1718b0&rId=" + obj.recipe_id)
-    .then(response => this.setState({roy:response, reciped: obj}));
-    console.log(this.state.roy)
-  }
+  //  handleClick(obj, event){
+  //   console.log(obj)
+  //   alert('yo')
+  //   axios.get("https://crossorigin.me/http://food2fork.com/api/get?key=2fc55b81d38f69fa79fa74a05a1718b0&rId=" + obj.recipe_id)
+  //   .then(response => this.setState({roy:response, reciped: obj}));
+  //   console.log(this.state.roy)
+  // }
 
-  handleClick2(obj, event){
-    event.preventDefault();
-    // save here
-    console.log(obj)
-  }
+  // handleClick2(obj, event){
+  //   event.preventDefault();
+  //   // save here
+  //   console.log(obj)
+  // }
 
 
 
@@ -40,18 +40,7 @@ class ShowRecipe extends React.Component {
          return(
           <div>
         <section className="content-padding recipes">
-        <div className="row">
-          <div className="large-12 medium-12 small-12 columns text-center">
-            <div className="head align-center">
-              <h2 className="margin0">Create new Watchlists</h2>
-              <h6 className="fontsans big"><strong>Sign in to save!</strong></h6>
-            </div>
-          </div>
-        </div>
 
-        <div className="wow bounceInUp" data-wow-offset="250">
-            <center><h2>Go ahead Search!.....</h2></center>
-        </div>
       </section>
     </div>
   );
@@ -60,8 +49,11 @@ class ShowRecipe extends React.Component {
       console.log(this.props.recipe == '')
       console.log(this.props.recipe)
       var recipe = this.props.recipe
+      
+      let n = 5
+      var limitnum = this.props.recipe.data.slice(0, n);
 
-      var recipes = this.props.recipe.data.map(function(recipe, index){
+      var recipes = limitnum.map(function(recipe, index){
 
     return(
     <div>
@@ -104,7 +96,7 @@ if(this.state.reciped == undefined){
         <div className="row">
           <div className="large-12 medium-12 small-12 columns text-center">
             <div className="head align-center">
-              <h2 className="margin0">Twitter Watchlists</h2>
+              <h2 className="margin0">Twitter Watchlist Three</h2>
               
             </div>
           </div>
@@ -126,7 +118,7 @@ if(this.state.reciped == undefined){
         <div className="row">
           <div className="large-12 medium-12 small-12 columns text-center">
             <div className="head align-center">
-              <h2 className="margin0"> Twitter Watchlists</h2>
+              <h2 className="margin0"> Twitter Watchlist Three</h2>
               
             </div>
           </div>
@@ -154,4 +146,4 @@ if(this.state.reciped == undefined){
 
 }
 
-export default ShowRecipe
+export default Container3
