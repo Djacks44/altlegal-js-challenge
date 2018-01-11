@@ -135,7 +135,7 @@ class Main extends React.Component {
               <nav className="wow fadeInDown">
                <div className="row">
                  <div className="large-3 medium-12 small-12 columns">
-                   <img src='assets/img/Logo_36px.png' className="ddd"/>
+                   
                  </div>
                  <div className="large-9 medium-12 small-12 columns">
                    <span id="showmobilemenu" className="hide-for-large-up">Menu</span>
@@ -250,7 +250,7 @@ class Main extends React.Component {
               <nav className="wow fadeInDown">
                <div className="row">
                  <div className="large-3 medium-12 small-12 columns">
-                   <img src='assets/img/Logo_36px.png' className="ddd"/>
+                   
                  </div>
                  <div className="large-9 medium-12 small-12 columns">
                    <span id="showmobilemenu" className="hide-for-large-up">Menu</span>
